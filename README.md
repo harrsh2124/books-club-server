@@ -1,1 +1,1 @@
-# books-club
+# Books Club (Server)

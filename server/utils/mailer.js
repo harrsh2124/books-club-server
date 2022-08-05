@@ -2,23 +2,24 @@ const hbs = require('nodemailer-express-handlebars');
 const nodemailer = require('nodemailer');
 const path = require('path');
 const logger = require('./logger');
+const env = require('./env');
 
 const SendMail = async (email, subject, message, template) => {
     const transporter = nodemailer.createTransport({
-        host: 'smtp.ethereal.email',
-        port: 587,
+        host: env.email.HOST,
+        port: env.email.PORT,
         auth: {
-            user: 'margaretta.boehm92@ethereal.email',
-            pass: 'Xz5HJmEFAsVH1z8fh5'
+            user: env.email.USER_ID,
+            pass: env.email.PASSWORD
         }
     });
 
     const handlebarOptions = {
         viewEngine: {
-            partialsDir: path.resolve('./server/templates/'),
+            partialsDir: path.resolve(`.${env.email.DIR}`),
             defaultLayout: false
         },
-        viewPath: path.resolve('./server/templates/'),
+        viewPath: path.resolve(`.${env.email.DIR}`),
         extName: '.hbs'
     };
     transporter.use('compile', hbs(handlebarOptions));

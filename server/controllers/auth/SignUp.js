@@ -2,6 +2,7 @@ const crypto = require('crypto');
 const User = require('../../models/User');
 const { encryptPassword } = require('../../utils/encryptDecryptPassword');
 const env = require('../../utils/env');
+const logger = require('../../utils/logger');
 const SendMail = require('../../utils/mailer');
 const Response = require('../../utils/response');
 
@@ -47,6 +48,7 @@ const UserSignUp = async (req, res) => {
 
         return Response(req, res, 200, 'User created successfully');
     } catch (error) {
+        logger.error(error.message);
         return Response(req, res);
     }
 };

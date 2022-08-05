@@ -1,10 +1,11 @@
 const app = require('./app');
 const routes = require('./routes/routes');
 const connectDB = require('./utils/db');
+const env = require('./utils/env');
 const logger = require('./utils/logger');
 const Response = require('./utils/response');
 
-const PORT = process.env.PORT || 8000;
+const PORT = env.app.PORT;
 
 connectDB().then(() => {
     app.listen(PORT, () => logger.info(`Server is running on port ${PORT}...`));

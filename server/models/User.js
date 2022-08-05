@@ -36,6 +36,10 @@ const UserSchema = mongoose.Schema(
         user_token: {
             type: String,
             trim: true
+        },
+        is_verified: {
+            type: Boolean,
+            default: false
         }
     },
     {

@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const RoleEnum = require('../config/enums/RoleEnum');
 
 const UserSchema = mongoose.Schema(
     {
@@ -40,6 +41,12 @@ const UserSchema = mongoose.Schema(
         is_verified: {
             type: Boolean,
             default: false
+        },
+        role: {
+            type: String,
+            trim: true,
+            default: 'USER',
+            enum: RoleEnum
         }
     },
     {

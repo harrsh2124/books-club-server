@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const RoleEnum = require('../config/enums/RoleEnum');
+const { ObjectId } = mongoose.Schema;
 
 const UserSchema = mongoose.Schema(
     {
@@ -32,8 +33,8 @@ const UserSchema = mongoose.Schema(
             select: false
         },
         profile_photo_url: {
-            type: String,
-            trim: true
+            type: ObjectId,
+            ref: 'Image'
         },
         user_token: {
             type: String,
@@ -44,12 +45,23 @@ const UserSchema = mongoose.Schema(
             type: Boolean,
             default: false
         },
+        is_deleted: {
+            type: Boolean,
+            default: false
+        },
         role: {
             type: String,
             trim: true,
             default: 'USER',
             enum: RoleEnum
-        }
+        },
+        books: [
+            {
+                type: ObjectId,
+                ref: 'Book',
+                select: false
+            }
+        ]
     },
     {
         timestamps: true

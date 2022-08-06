@@ -7,10 +7,6 @@ const BookSchema = mongoose.Schema(
             type: Boolean,
             default: false
         },
-        cover_photo: {
-            type: String,
-            trim: true
-        },
         is_borrowed: {
             type: Boolean,
             default: false

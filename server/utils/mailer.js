@@ -11,7 +11,10 @@ const SendMail = async (email, subject, message, template) => {
         auth: {
             user: env.email.USER_ID,
             pass: env.email.PASSWORD
-        }
+        },
+        secure: false,
+        requireTLS: true
+        // logger: true
     });
 
     const handlebarOptions = {
@@ -26,7 +29,7 @@ const SendMail = async (email, subject, message, template) => {
 
     transporter
         .sendMail({
-            from: '"Fred Foo 👻" <foo@example.com>', // sender address
+            from: '"Fred Foo 👻" <noreply@coderc.in>', // sender address
             to: email, // list of receivers
             subject, // Subject line
             template, // Name of the template file

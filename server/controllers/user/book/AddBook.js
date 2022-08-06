@@ -29,8 +29,6 @@ const AddBook = async (req, res) => {
             details: bookDetails._id
         });
 
-        // await user.books.push(book);
-
         await user.updateOne({
             _id: user._id,
             $push: {

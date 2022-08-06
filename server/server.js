@@ -18,5 +18,5 @@ connectDB().then(() => {
         return Response(req, res, 200, 'Server is up and running!');
     });
 
-    app.use('/api/v1', routes);
+    app.use('/', routes);
 });

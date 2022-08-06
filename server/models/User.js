@@ -28,7 +28,8 @@ const UserSchema = mongoose.Schema(
         password: {
             type: String,
             trim: true,
-            required: true
+            required: true,
+            select: false
         },
         profile_photo_url: {
             type: String,
@@ -36,7 +37,8 @@ const UserSchema = mongoose.Schema(
         },
         user_token: {
             type: String,
-            trim: true
+            trim: true,
+            select: false
         },
         is_verified: {
             type: Boolean,

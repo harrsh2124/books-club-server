@@ -17,7 +17,7 @@ const SignIn = async (req, res) => {
                     mobile_number: user_id
                 }
             ]
-        });
+        }).select('+password');
 
         if (!existingUser) {
             return Response(req, res, 400, 'User does not exist');

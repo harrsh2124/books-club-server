@@ -9,7 +9,7 @@ const VerifyUser = async (req, res) => {
         const existingUser = await User.findOne({
             _id,
             user_token
-        });
+        }).select('+user_token');
 
         if (!existingUser) {
             return Response(req, res, 400, 'User does not exist');

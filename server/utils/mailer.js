@@ -29,7 +29,7 @@ const SendMail = async (email, subject, message, template) => {
 
     transporter
         .sendMail({
-            from: '"Fred Foo 👻" <noreply@coderc.in>', // sender address
+            from: `"Harrsh Patel" <${env.email.USER_ID}>`, // sender address
             to: email, // list of receivers
             subject, // Subject line
             template, // Name of the template file
